@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MipoSocial - Teste o Novo App</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* --- Variáveis de Cor --- */
+      :root {
+        --mipo-yellow: #ffde17;
+        --mipo-red: #ee2737;
+        --text-dark: #333;
+        --text-light: #fff;
+      }
+
+      /* --- Estilos Globais --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--mipo-yellow);
+        font-family: "Fredoka", sans-serif;
+        color: var(--text-dark);
+        overflow-x: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .page-container {
+        width: 100%;
+        max-width: 1200px;
+        padding: 40px 20px;
+        position: relative;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+
+      /* --- Logo --- */
+      .logo-container {
+        margin-bottom: 20px;
+        z-index: 10;
+      }
+      .logo-mipo {
+        max-width: 300px;
+        width: 100%;
+        height: auto;
+      }
+
+      /* --- Conteúdo Central --- */
+      .main-content {
+        z-index: 10;
+        max-width: 800px;
+      }
+
+      .headline {
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: var(--text-light);
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        text-shadow:
+          -2px -2px 0 #000,
+          2px -2px 0 #000,
+          -2px 2px 0 #000,
+          2px 2px 0 #000,
+          2px 4px 6px rgba(0, 0, 0, 0.3);
+        line-height: 1.1;
+      }
+
+      .sub-headline-app {
+        font-family: "Varela Round", sans-serif;
+        font-size: 3rem;
+        color: var(--mipo-red);
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        position: relative;
+        display: inline-block;
+        text-shadow:
+          2px 2px 0px #b31d29,
+          4px 4px 0px #b31d29,
+          6px 6px 10px rgba(0, 0, 0, 0.4);
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: var(--mipo-red);
+        color: var(--text-light);
+        font-size: 1.4rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 18px 45px;
+        border-radius: 50px;
+        text-decoration: none;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        box-shadow:
+          0px 5px 0px #b31d29,
+          0px 8px 15px rgba(0, 0, 0, 0.3);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .footer-text {
+        margin-top: 30px;
+        font-size: 1rem;
+        color: var(--text-light);
+        font-weight: 400;
+      }
+
+      /* --- PERSONAGENS (Desktop) --- */
+      .character {
+        position: absolute;
+        height: auto;
+        z-index: 1;
+        animation: float 4s ease-in-out infinite;
+      }
+
+      .char-cthulhu {
+        width: 250px;
+        left: 5%;
+        top: 15%;
+      }
+      .char-card {
+        width: 230px;
+        right: 5%;
+        top: 15%;
+        animation-delay: 2s;
+      }
+      .char-potion {
+        width: 250px;
+        left: 5%;
+        bottom: 10%;
+        animation-delay: 1s;
+      }
+      .char-die {
+        width: 250px;
+        right: 5%;
+        bottom: 10%;
+        animation-delay: 1.5s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+      }
+
+      /* --- RESPONSIVIDADE MOBILE (O "Conserto") --- */
+      @media (max-width: 900px) {
+        .page-container {
+          padding-top: 60px;
+          padding-bottom: 60px;
+          justify-content: center;
+        }
+
+        .headline {
+          font-size: 1.5rem;
+        }
+        .sub-headline-app {
+          font-size: 2.2rem;
+        }
+        .cta-button {
+          font-size: 1.1rem;
+          padding: 15px 30px;
+        }
+
+        /* Tamanho reduzido para caber nos 4 cantos */
+        .character {
+          width: 200px !important; /* Força o tamanho menor no mobile */
+          opacity: 0.9;
+        }
+
+        /* Posicionamento em Quadrado (Cantos) */
+        .char-cthulhu {
+          top: 20px;
+          left: 10px;
+        }
+        .char-card {
+          top: 20px;
+          right: 10px;
+        }
+        .char-potion {
+          bottom: 20px;
+          left: 10px;
+        }
+        .char-die {
+          bottom: 20px;
+          right: 10px;
+        }
+
+        /* Ajuste na animação para não baterem no texto */
+        @keyframes float {
+          0%,
+          100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-container">
+      <img
+        src="Prancheta 15.png"
+        alt="Cthulhu apontando"
+        class="character char-cthulhu"
+      />
+      <img
+        src="Prancheta 23.png"
+        alt="Dado acenando"
+        class="character char-die"
+      />
+      <img
+        src="Prancheta 1.png"
+        alt="Carta de baralho"
+        class="character char-card"
+      />
+      <img
+        src="Prancheta 25.png"
+        alt="Carta de baralho"
+        class="character char-potion"
+      />
+
+      <div class="logo-container">
+        <img
+          src="Captura_de_tela_2026-02-16_223704-removebg-preview.png"
+          alt="Mipo Logo"
+          class="logo-mipo"
+        />
+      </div>
+
+      <div class="main-content">
+        <h1 class="headline">
+          Você foi selecionado para testar o novo app da mipo!
+        </h1>
+
+        <h2 class="sub-headline-app">O MIPOSOCIAL</h2>
+
+        <a href="MipoSocial.apk" class="cta-button">
+          Clique aqui e faça o download
+        </a>
+
+        <p class="footer-text">não esquece de contar pra gente ooque achou!</p>
+      </div>
+    </div>
+  </body>
+</html>
